@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Zone | Love at First Bite | Official Klik & Beu Partner</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@600;800;900&family=Pacifico&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome & Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#1A1A1A',
+                            dark: '#121212',
+                            amber: '#E87A20',
+                            orange: '#FF6B35',
+                            green: '#4CAF50',
+                            gold: '#F5A623',
+                            cream: '#FFF8E7',
+                            beu: '#FF385C',
+                            klik: '#00A896'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        tagline: ['Pacifico', 'cursive'],
+                        number: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glow-amber {
+            box-shadow: 0 0 25px rgba(232, 122, 32, 0.4);
+        }
+        .text-glow {
+            text-shadow: 0 0 12px rgba(232, 122, 32, 0.8);
+        }
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1A1A1A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E87A20;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-brand-black text-white font-body selection:bg-brand-amber selection:text-white overflow-x-hidden">
+
+    <!-- Top Announcement Bar with Partner Badges -->
+    <div class="bg-gradient-to-r from-brand-orange via-brand-amber to-brand-gold text-black font-semibold text-xs md:text-sm py-2 px-4 text-center flex justify-between items-center z-50 relative">
+        <span class="mx-auto flex items-center gap-2 flex-wrap justify-center">
+            <i class="fa-solid fa-handshake text-black animate-pulse"></i>
+            <strong>Burger Zone x Klik & Beu Partnership:</strong> Order directly via Klik & Beu Delivery in Addis Ababa! (Ayer Tena Branch)
+        </span>
+        <button onclick="this.parentElement.remove()" class="text-black hover:opacity-75 font-bold px-2">&times;</button>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-orange to-brand-gold flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform shadow-lg shadow-brand-amber/30">
+                    <div class="w-full h-full bg-brand-black rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-burger text-brand-amber text-2xl group-hover:rotate-12 transition-transform"></i>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-heading font-black text-xl sm:text-2xl tracking-wider text-white block leading-none">
+                        BURGER<span class="text-brand-amber">ZONE</span>
+                    </span>
+                    <span class="font-tagline text-brand-gold text-xs block -mt-1">Love at First Bite</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#hero" class="hover:text-brand-amber transition-colors">Home</a>
+                <a href="#collab" class="hover:text-brand-amber transition-colors text-brand-gold font-bold">Delivery Partners</a>
+                <a href="#about" class="hover:text-brand-amber transition-colors">About</a>
+                <a href="#menu" class="hover:text-brand-amber transition-colors">Menu</a>
+                <a href="#builder" class="hover:text-brand-amber transition-colors flex items-center gap-1.5 text-brand-amber">
+                    <i class="fa-solid fa-sliders text-xs"></i> Custom Builder
+                </a>
+                <a href="#reviews" class="hover:text-brand-amber transition-colors">Reviews</a>
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="flex items-center gap-3">
+                <!-- Phone Button -> Direct Dial -->
+                <a href="tel:0944187274" class="hidden lg:flex items-center gap-2 text-xs font-number bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-2 rounded-lg transition-colors">
+                    <i class="fa-solid fa-phone text-brand-green"></i> 0944187274
+                </a>
+
+                <!-- Cart Button -->
+                <button onclick="toggleCart()" class="relative p-3 bg-brand-amber/20 hover:bg-brand-amber/30 border border-brand-amber/40 rounded-full text-brand-amber transition-transform active:scale-95">
+                    <i class="fa-solid fa-bag-shopping text-lg"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-brand-orange text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center font-number border border-brand-black">0</span>
+                </button>
+
+                <!-- Order Now CTA -->
+                <a href="#menu" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-brand-amber to-brand-orange hover:from-brand-orange hover:to-brand-amber text-white font-heading font-bold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-brand-orange/30 transition-all hover:-translate-y-0.5">
+                    Order Now <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+
+                <!-- Mobile Navigation Toggle -->
+                <button onclick="toggleMobileNav()" class="md:hidden p-2 text-white hover:text-brand-amber text-2xl">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-nav" class="hidden md:hidden bg-brand-black/95 border-b border-white/10 px-6 py-6 flex flex-col gap-4 font-heading text-lg">
+            <a href="#hero" onclick="toggleMobileNav()" class="hover:text-brand-amber">Home</a>
+            <a href="#collab" onclick="toggleMobileNav()" class="text-brand-gold">Delivery Partners (Klik & Beu)</a>
+            <a href="#about" onclick="toggleMobileNav()" class="hover:text-brand-amber">About Us</a>
+            <a href="#menu" onclick="toggleMobileNav()" class="hover:text-brand-amber">Menu & Specials</a>
+            <a href="#builder" onclick="toggleMobileNav()" class="text-brand-amber flex items-center gap-2">
+                <i class="fa-solid fa-sliders"></i> Custom Burger Builder
+            </a>
+            <a href="#reviews" onclick="toggleMobileNav()" class="hover:text-brand-amber">Reviews</a>
+            <a href="#contact" onclick="toggleMobileNav()" class="hover:text-brand-amber">Location & Contact</a>
+            <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
+                <a href="tel:0944187274" class="w-full text-center bg-brand-green/20 border border-brand-green/40 hover:bg-brand-green/30 text-white py-3 rounded-xl font-number text-sm font-bold flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone text-brand-green"></i> Call 0944187274
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative min-h-[calc(100vh-5rem)] flex items-center pt-8 pb-16 overflow-hidden">
+        <div class="absolute top-1/4 left-10 w-72 h-72 bg-brand-orange/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-brand-amber/15 rounded-full blur-[150px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <!-- Left Info Content -->
+            <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 bg-brand-amber/10 border border-brand-amber/30 text-brand-gold px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide">
+                    <i class="fa-solid fa-shield-halved text-brand-gold"></i> Official Delivery Partners: Beu & Klik
+                </div>
+
+                <h1 class="font-heading font-black text-4xl sm:text-6xl xl:text-7xl tracking-tight leading-none">
+                    Taste The <br class="hidden sm:inline"/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-amber via-brand-orange to-brand-gold">Perfect Burger</span>
+                </h1>
+
+                <p class="font-tagline text-3xl sm:text-4xl text-brand-cream rotate-[-2deg] text-glow">
+                    "Love at First Bite"
+                </p>
+
+                <p class="text-gray-300 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    Freshly grilled, juicy patties served at Ayer Tena Shamo Tower. We collaborate directly with <strong class="text-brand-beu">Beu Delivery</strong> and <strong class="text-brand-klik">Klik Delivery</strong> for fast dispatch across Addis Ababa.
+                </p>
+
+                <!-- Delivery Collaboration Callouts -->
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
+                    <button onclick="openDeliveryModal('beu')" class="bg-brand-beu/20 border border-brand-beu/40 hover:bg-brand-beu/30 text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-2 transition-transform hover:scale-105">
+                        <i class="fa-solid fa-motorcycle text-brand-beu"></i> Order via Beu App
+                    </button>
+                    <button onclick="openDeliveryModal('klik')" class="bg-brand-klik/20 border border-brand-klik/40 hover:bg-brand-klik/30 text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-2 transition-transform hover:scale-105">
+                        <i class="fa-solid fa-truck-fast text-brand-klik"></i> Order via Klik App
+                    </button>
+                    <a href="tel:0944187274" class="bg-brand-green/20 border border-brand-green/40 hover:bg-brand-green/30 text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-2 transition-transform hover:scale-105">
+                        <i class="fa-solid fa-phone text-brand-green"></i> Direct Phone Call
+                    </a>
+                </div>
+
+                <!-- CTA Cluster -->
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#menu" class="bg-gradient-to-r from-brand-amber to-brand-orange text-white font-heading font-bold px-8 py-4 rounded-xl shadow-xl shadow-brand-orange/30 hover:scale-105 hover:shadow-brand-orange/50 transition-all flex items-center gap-3">
+                        <i class="fa-solid fa-utensils"></i> View Full Menu
+                    </a>
+                    <a href="#builder" class="glass-panel hover:bg-white/10 text-white border border-white/20 font-heading font-semibold px-6 py-4 rounded-xl transition-all hover:scale-105 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-brand-gold"></i> Build Custom Burger
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Right Hero Image Showcase -->
+            <div class="lg:col-span-6 relative flex justify-center items-center">
+                <div class="relative w-full max-w-md lg:max-w-none">
+                    <div class="absolute inset-0 bg-gradient-to-r from-brand-amber to-brand-orange rounded-3xl filter blur-2xl opacity-30 transform scale-95"></div>
+                    
+                    <div class="relative rounded-3xl overflow-hidden border-2 border-white/15 shadow-2xl group">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=80" alt="Burger Zone Special" class="w-full h-[380px] sm:h-[460px] object-cover group-hover:scale-105 transition-transform duration-500">
+                        
+                        <!-- Floating Badge overlays -->
+                        <div class="absolute top-4 right-4 glass-panel border border-brand-gold/40 px-4 py-2 rounded-xl flex items-center gap-2">
+                            <i class="fa-solid fa-fire-flame-curved text-brand-orange"></i>
+                            <span class="text-xs font-bold text-white">Chef's Hot Special</span>
+                        </div>
+
+                        <!-- Partner Collaboration Tag -->
+                        <div class="absolute top-4 left-4 glass-panel border border-brand-green/40 px-3 py-1.5 rounded-xl flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span>
+                            <span class="text-[11px] font-bold text-white">Live on Beu & Klik</span>
+                        </div>
+
+                        <div class="absolute bottom-4 left-4 right-4 glass-panel p-4 rounded-2xl border border-white/20 flex items-center justify-between">
+                            <div>
+                                <div class="font-heading font-bold text-sm text-white">Double Beyond Special</div>
+                                <div class="text-xs text-gray-300">Served with seasoned fries</div>
+                            </div>
+                            <span class="font-number font-bold text-lg text-brand-gold">ETB 800</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DELIVERY COLLABORATION BANNER -->
+    <section id="collab" class="py-12 bg-gradient-to-r from-brand-black via-brand-dark to-brand-black border-y border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <span class="text-brand-gold font-heading font-bold text-xs tracking-widest uppercase">// OFFICIAL INTEGRATION</span>
+                <h2 class="font-heading font-black text-2xl sm:text-4xl text-white mt-1">Seamless Delivery Collaboration</h2>
+                <p class="text-gray-400 text-xs sm:text-sm mt-1">Choose your preferred delivery option or call directly to order.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- BEU CARD -->
+                <div class="glass-panel p-6 rounded-2xl border border-brand-beu/30 flex items-center justify-between hover:border-brand-beu transition-colors">
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-brand-beu"></span>
+                            <h3 class="font-heading font-black text-xl text-white">BEU Delivery</h3>
+                        </div>
+                        <p class="text-xs text-gray-300">Direct integration with Beu Express dispatch from Ayer Tena Shamo Tower.</p>
+                        <span class="inline-block text-[11px] text-brand-gold font-semibold">⚡ Avg delivery: 25-35 mins</span>
+                    </div>
+                    <button onclick="openDeliveryModal('beu')" class="bg-brand-beu hover:brightness-110 text-white font-bold text-xs px-4 py-3 rounded-xl transition-transform active:scale-95 whitespace-nowrap ml-4">
+                        Order via Beu <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                    </button>
+                </div>
+
+                <!-- KLIK CARD -->
+                <div class="glass-panel p-6 rounded-2xl border border-brand-klik/30 flex items-center justify-between hover:border-brand-klik transition-colors">
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-brand-klik"></span>
+                            <h3 class="font-heading font-black text-xl text-white">KLIK Delivery</h3>
+                        </div>
+                        <p class="text-xs text-gray-300">Fast courier pickup via Klik app for all Burger Zone specialty items.</p>
+                        <span class="inline-block text-[11px] text-brand-gold font-semibold">⚡ Real-time GPS Tracking</span>
+                    </div>
+                    <button onclick="openDeliveryModal('klik')" class="bg-brand-klik hover:brightness-110 text-white font-bold text-xs px-4 py-3 rounded-xl transition-transform active:scale-95 whitespace-nowrap ml-4">
+                        Order via Klik <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION & GALLERY -->
+    <section id="about" class="py-20 bg-brand-dark/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Image Grid Showcase -->
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="relative h-48 rounded-2xl overflow-hidden border border-white/10 group">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Special Burger" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                                <span class="text-xs font-bold text-white">Juicy Double Patties</span>
+                            </div>
+                        </div>
+
+                        <div class="relative h-32 rounded-2xl overflow-hidden border border-white/10 group">
+                            <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=600&q=80" alt="Panini Wrap" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                                <span class="text-xs font-bold text-white">Grilled Panini Wraps</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 pt-6">
+                        <div class="relative h-32 rounded-2xl overflow-hidden border border-white/10 group">
+                            <img src="https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80" alt="Strawberry Waffles" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                                <span class="text-xs font-bold text-white">Fresh Waffles & Crepes</span>
+                            </div>
+                        </div>
+
+                        <div class="relative h-48 rounded-2xl overflow-hidden border border-white/10 group">
+                            <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80" alt="Deluxe Shakes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                                <span class="text-xs font-bold text-white">Rich Ice Cream Shakes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-block text-brand-amber font-heading font-bold text-sm tracking-wider uppercase">
+                        // Our Story & Quality
+                    </div>
+
+                    <h2 class="font-heading font-black text-3xl sm:text-5xl text-white leading-tight">
+                        Crafting Addis Ababa’s Most <span class="text-brand-amber">Craved Burgers</span>
+                    </h2>
+
+                    <p class="text-gray-300 leading-relaxed">
+                        Made with fresh local ingredients, juicy seasoned beef, and ultra-soft oven-baked buns, our burgers are grilled to perfection. Order directly via our official partners <strong>Beu Delivery</strong> or <strong>Klik Delivery</strong>, or call us directly!
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start gap-3">
+                            <div class="p-2.5 rounded-lg bg-brand-amber/20 text-brand-amber">
+                                <i class="fa-solid fa-pepper-hot text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-white">4 House Sauces</h4>
+                                <p class="text-xs text-gray-400">BBQ, Garlic Mayo, Spicy Chili & Secret Hap Sauce</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="p-2.5 rounded-lg bg-brand-green/20 text-brand-green">
+                                <i class="fa-solid fa-leaf text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-white">Fasting & Veggie Options</h4>
+                                <p class="text-xs text-gray-400">Eggplant, Veggie Rolls & Tuna Spaghetti</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Order Box -->
+                    <div class="p-4 rounded-2xl bg-gradient-to-r from-brand-amber/20 to-transparent border border-brand-amber/30 flex flex-wrap items-center justify-between gap-4">
+                        <div>
+                            <div class="text-xs text-brand-gold font-semibold uppercase tracking-wider">Direct Hotline Call</div>
+                            <a href="tel:0944187274" class="font-number font-bold text-lg text-white hover:text-brand-green transition-colors">0944187274</a> / 
+                            <a href="tel:0977226515" class="font-number font-bold text-lg text-white hover:text-brand-green transition-colors">0977226515</a>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <a href="tel:0944187274" class="bg-brand-green hover:bg-emerald-600 text-white font-heading font-bold text-xs px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
+                                <i class="fa-solid fa-phone"></i> Call Store Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FULL INTERACTIVE MENU SECTION -->
+    <section id="menu" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                <span class="text-brand-amber font-heading font-bold text-sm tracking-widest uppercase">// OUR MENU</span>
+                <h2 class="font-heading font-black text-3xl sm:text-5xl text-white">Loaded With Flavors</h2>
+                <p class="text-gray-400 text-sm sm:text-base">Explore our signature specialty burgers, grilled wraps, loaded pizzas, shakes, and artisan waffles & crepes.</p>
+                
+                <!-- Search Filter -->
+                <div class="relative max-w-md mx-auto mt-6">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" id="menu-search" oninput="filterMenu()" placeholder="Search burgers, wraps, shakes..." class="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-11 pr-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-amber transition-colors">
+                </div>
+            </div>
+
+            <!-- Category Pills Bar -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar justify-start sm:justify-center">
+                <button onclick="setCategory('all')" class="cat-btn active bg-brand-amber text-white font-heading text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full whitespace-nowrap transition-all shadow-md">All Items</button>
+                <button onclick="setCategory('specialty')" class="cat-btn glass-panel text-gray-300 hover:text-white font-heading text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full whitespace-nowrap transition-all">Specialty Burgers</button>
+                <button onclick="setCategory('chicken')" class="cat-btn glass-panel text-gray-300 hover:text-white font-heading text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full whitespace-nowrap transition-all">Chicken & Classic</button>
+                <button onclick="setCategory('wraps')" class="cat-btn glass-panel text-gray-300 hover:text-white font-heading text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full whitespace-nowrap transition-all">Wraps & Pizza</button>
+                <button onclick="setCategory('desserts')" class="cat-btn glass-panel text-gray-300 hover:text-white font-heading text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full whitespace-nowrap transition-all">Waffles & Crepes</button>
+                <button onclick="setCategory('drinks')" class="cat-btn glass-panel text-gray-300 hover:text-white font-heading text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full whitespace-nowrap transition-all">Shakes & Drinks</button>
+            </div>
+
+            <!-- Dynamic Menu Grid -->
+            <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Populated dynamically -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CUSTOM BURGER BUILDER -->
+    <section id="builder" class="py-20 bg-brand-dark relative border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="bg-brand-gold/20 text-brand-gold border border-brand-gold/30 px-3 py-1 rounded-full text-xs font-bold font-number uppercase">Interactive Feature</span>
+                <h2 class="font-heading font-black text-3xl sm:text-5xl text-white mt-3">Custom Burger Builder</h2>
+                <p class="text-gray-400 text-sm mt-2">Select your favorite toppings and protein bases to calculate and order your tailored burger.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-panel p-6 sm:p-8 rounded-3xl border border-white/10">
+                
+                <!-- Controls (Left) -->
+                <div class="lg:col-span-6 space-y-6">
+                    
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">1. Choose Protein Base</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button onclick="updateBuilder('patty', 'single')" class="builder-opt active p-3 rounded-xl bg-brand-amber text-white font-heading text-xs font-bold text-center border border-brand-amber transition-all">Single Beef (ETB 600)</button>
+                            <button onclick="updateBuilder('patty', 'double')" class="builder-opt p-3 rounded-xl bg-white/5 text-gray-300 font-heading text-xs font-bold text-center border border-white/10 hover:border-brand-amber transition-all">Double Beef (+ETB 150)</button>
+                            <button onclick="updateBuilder('patty', 'chicken')" class="builder-opt p-3 rounded-xl bg-white/5 text-gray-300 font-heading text-xs font-bold text-center border border-white/10 hover:border-brand-amber transition-all">Crispy Chicken (ETB 650)</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">2. Cheese & Sauces</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="toggleBuilderExtra('cheese')" id="opt-cheese" class="p-3 rounded-xl bg-brand-amber/20 text-brand-gold border border-brand-amber/40 font-heading text-xs font-bold text-left flex justify-between items-center">
+                                <span><i class="fa-solid fa-cheese mr-1"></i> Melted Cheese</span>
+                                <span class="font-number">+ETB 80</span>
+                            </button>
+                            <button onclick="toggleBuilderExtra('sauce')" id="opt-sauce" class="p-3 rounded-xl bg-brand-amber/20 text-brand-gold border border-brand-amber/40 font-heading text-xs font-bold text-left flex justify-between items-center">
+                                <span><i class="fa-solid fa-bottle-droplet mr-1"></i> Double Saucy</span>
+                                <span class="font-number">+ETB 50</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">3. Fresh Extras & Sides</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="toggleBuilderExtra('lettuce')" id="opt-lettuce" class="p-3 rounded-xl bg-brand-green/20 text-brand-green border border-brand-green/40 font-heading text-xs font-bold text-left flex justify-between items-center">
+                                <span><i class="fa-solid fa-leaf mr-1"></i> Fresh Veggies</span>
+                                <span class="font-number">Included</span>
+                            </button>
+                            <button onclick="toggleBuilderExtra('wings')" id="opt-wings" class="p-3 rounded-xl bg-white/5 text-gray-300 border border-white/10 font-heading text-xs font-bold text-left flex justify-between items-center">
+                                <span><i class="fa-solid fa-drumstick-bite mr-1"></i> +2 Wings Side</span>
+                                <span class="font-number">+ETB 150</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Total Price Bar -->
+                    <div class="p-4 rounded-2xl bg-black/50 border border-white/10 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 block uppercase font-bold">Custom Burger Total</span>
+                            <span id="builder-price" class="font-number font-black text-2xl text-brand-gold">ETB 730</span>
+                        </div>
+                        <button onclick="addCustomBurgerToCart()" class="bg-gradient-to-r from-brand-amber to-brand-orange hover:from-brand-orange hover:to-brand-amber text-white font-heading font-bold text-sm px-6 py-3 rounded-xl shadow-lg transition-all hover:scale-105">
+                            <i class="fa-solid fa-cart-plus mr-1"></i> Add Custom Burger
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Visual Customization Showcase (Right) -->
+                <div class="lg:col-span-6 h-[350px] sm:h-[400px] relative rounded-2xl overflow-hidden bg-black/40 border border-white/10 p-6 flex flex-col justify-between">
+                    <img id="builder-img-preview" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Custom Burger Preview" class="w-full h-56 object-cover rounded-xl shadow-xl transition-all duration-300">
+                    
+                    <div id="builder-summary-tags" class="flex flex-wrap gap-2 pt-3">
+                        <span class="bg-brand-amber/20 border border-brand-amber/40 text-brand-gold text-xs font-bold px-3 py-1 rounded-full">Single Beef</span>
+                        <span class="bg-brand-gold/20 border border-brand-gold/40 text-brand-gold text-xs font-bold px-3 py-1 rounded-full">Melted Cheese</span>
+                        <span class="bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold px-3 py-1 rounded-full">Extra Saucy</span>
+                        <span class="bg-brand-green/20 border border-brand-green/40 text-brand-green text-xs font-bold px-3 py-1 rounded-full">Fresh Veggies</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS & REPUTATION -->
+    <section id="reviews" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-brand-amber font-heading font-bold text-sm tracking-widest uppercase">// COMMUNITY & REVIEWS</span>
+                    <h2 class="font-heading font-black text-3xl sm:text-5xl text-white mt-1">Loved by 10K+ Foodies</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex text-brand-gold text-sm gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-xs text-gray-500 font-number">Beu Customer</span>
+                    </div>
+                    <p class="text-gray-300 text-sm italic">
+                        "Ordered via Beu Delivery app and received hot burgers in Ayer Tena in 20 minutes! Super convenient collaboration."
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-brand-beu/30 flex items-center justify-center font-heading font-bold text-white">Y</div>
+                        <div>
+                            <div class="font-heading font-bold text-xs text-white">Yared T.</div>
+                            <div class="text-[10px] text-gray-400">Beu App User</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex text-brand-gold text-sm gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-xs text-gray-500 font-number">Klik Customer</span>
+                    </div>
+                    <p class="text-gray-300 text-sm italic">
+                        "Military Style burger + double fries ordered via Klik Delivery. Quick dispatch and easy tracking."
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-brand-klik/30 flex items-center justify-center font-heading font-bold text-white">H</div>
+                        <div>
+                            <div class="font-heading font-bold text-xs text-white">Hana M.</div>
+                            <div class="text-[10px] text-gray-400">Klik App User</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex text-brand-gold text-sm gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-xs text-gray-500 font-number">Dine-In</span>
+                    </div>
+                    <p class="text-gray-300 text-sm italic">
+                        "Ayer Tena Shamo Tower location is cozy. Great strawberry shakes and chocolate crepes."
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-brand-amber/30 flex items-center justify-center font-heading font-bold text-brand-gold">S</div>
+                        <div>
+                            <div class="font-heading font-bold text-xs text-white">Selam K.</div>
+                            <div class="text-[10px] text-gray-400">Addis Ababa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LOCATION & PARTNER CONTACT -->
+    <section id="contact" class="py-20 bg-brand-dark relative border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Contact Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-brand-amber font-heading font-bold text-sm tracking-widest uppercase">// LOCATION & COLLABORATION</span>
+                    <h2 class="font-heading font-black text-3xl sm:text-4xl text-white">Visit or Order Online</h2>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div class="glass-panel p-4 rounded-xl flex items-start gap-4">
+                            <div class="p-3 bg-brand-amber/20 rounded-lg text-brand-amber text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-white">Address</h4>
+                                <p class="text-xs text-gray-300 mt-0.5">Ayer Tena Shamo Tower, 1st Floor, Addis Ababa, Ethiopia</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel p-4 rounded-xl flex items-start gap-4">
+                            <div class="p-3 bg-brand-green/20 rounded-lg text-brand-green text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-white">Direct Phone Hotlines</h4>
+                                <div class="mt-1 flex flex-col gap-1">
+                                    <a href="tel:0944187274" class="text-xs text-brand-green hover:underline font-number flex items-center gap-2">
+                                        <i class="fa-solid fa-square-phone"></i> 0944187274 (Click to Call)
+                                    </a>
+                                    <a href="tel:0977226515" class="text-xs text-brand-green hover:underline font-number flex items-center gap-2">
+                                        <i class="fa-solid fa-square-phone"></i> 0977226515 (Click to Call)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel p-4 rounded-xl flex items-start gap-4">
+                            <div class="p-3 bg-brand-orange/20 rounded-lg text-brand-orange text-lg">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-white">Official Delivery Platforms</h4>
+                                <p class="text-xs text-gray-300 mt-0.5">Integrated checkout with Beu Delivery & Klik Delivery</p>
+                                <div class="flex gap-2 mt-3">
+                                    <button onclick="openDeliveryModal('beu')" class="bg-brand-beu/20 hover:bg-brand-beu/40 border border-brand-beu/50 text-white font-bold text-xs px-3 py-1.5 rounded-lg transition-colors">
+                                        <i class="fa-solid fa-motorcycle mr-1 text-brand-beu"></i> Launch BEU
+                                    </button>
+                                    <button onclick="openDeliveryModal('klik')" class="bg-brand-klik/20 hover:bg-brand-klik/40 border border-brand-klik/50 text-white font-bold text-xs px-3 py-1.5 rounded-lg transition-colors">
+                                        <i class="fa-solid fa-truck-fast mr-1 text-brand-klik"></i> Launch KLIK
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location Showcase -->
+                <div class="lg:col-span-7 h-[380px] rounded-3xl overflow-hidden relative border border-white/10 group">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80" alt="Restaurant Location" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-6 flex flex-col justify-between">
+                        <div class="flex justify-between items-center">
+                            <div class="bg-brand-black/80 px-4 py-2 rounded-xl border border-white/10 text-xs font-bold text-white flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span>
+                                Shamo Tower 1st Floor Station
+                            </div>
+                            <span class="text-xs text-brand-gold font-number bg-black/60 px-3 py-1 rounded-full border border-white/10">24 Hours Open</span>
+                        </div>
+
+                        <div>
+                            <h3 class="font-heading font-black text-2xl text-white">Ayer Tena Hub</h3>
+                            <p class="text-xs text-gray-300 mt-1">Integrated dispatch terminal for Beu Delivery & Klik Delivery</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+                <a href="#" class="font-heading font-black text-2xl text-white tracking-wider">
+                    BURGER<span class="text-brand-amber">ZONE</span>
+                </a>
+                <p class="text-xs text-gray-500 mt-1">© 2026 Burger Zone Ethiopia. Official partner of Klik Delivery & Beu Delivery.</p>
+            </div>
+
+            <div class="flex items-center gap-6 text-gray-400 text-lg">
+                <a href="https://instagram.com" target="_blank" class="hover:text-brand-amber transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank" class="hover:text-brand-amber transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="tel:0944187274" class="hover:text-brand-green transition-colors" title="Call Store"><i class="fa-solid fa-phone"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART DRAWER WITH BEU, KLIK & DIRECT CALL CHECKOUT -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden transition-opacity">
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-brand-dark border-l border-white/10 flex flex-col justify-between p-6 shadow-2xl">
+            
+            <div>
+                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                    <h3 class="font-heading font-bold text-xl text-white flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-brand-amber"></i> Your Order
+                    </h3>
+                    <button onclick="toggleCart()" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+                </div>
+
+                <div id="cart-items" class="py-4 space-y-3 max-h-[45vh] overflow-y-auto no-scrollbar">
+                    <!-- Dynamic Cart Items -->
+                </div>
+            </div>
+
+            <!-- COLLABORATION DELIVERY SELECTION -->
+            <div class="border-t border-white/10 pt-4 space-y-4">
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-gray-400 font-bold uppercase">Subtotal</span>
+                    <span id="cart-total" class="font-number font-black text-2xl text-brand-gold">ETB 0</span>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider">Choose Dispatch / Order Method</label>
+                    
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="processCheckout('beu')" class="bg-brand-beu hover:brightness-110 text-white font-heading font-bold text-xs py-3.5 px-3 rounded-xl flex flex-col items-center justify-center gap-1 shadow-lg transition-all active:scale-95">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-motorcycle"></i> Checkout via BEU</span>
+                            <span class="text-[10px] opacity-80 font-normal">Auto-load to Beu App</span>
+                        </button>
+                        
+                        <button onclick="processCheckout('klik')" class="bg-brand-klik hover:brightness-110 text-white font-heading font-bold text-xs py-3.5 px-3 rounded-xl flex flex-col items-center justify-center gap-1 shadow-lg transition-all active:scale-95">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-truck-fast"></i> Checkout via KLIK</span>
+                            <span class="text-[10px] opacity-80 font-normal">Auto-load to Klik App</span>
+                        </button>
+                    </div>
+
+                    <!-- Direct Call Action -> Directly launches Phone Dialer -->
+                    <a href="tel:0944187274" class="w-full bg-brand-green/20 hover:bg-brand-green/30 border border-brand-green/40 text-white font-heading font-bold text-xs py-3.5 rounded-xl transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone text-brand-green"></i> Call Store Directly (0944187274)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PARTNER DEEP LINKING MODAL -->
+    <div id="collab-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-brand-dark border border-white/20 p-6 rounded-3xl max-w-md w-full space-y-4 text-center">
+            <div id="modal-icon" class="w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl"></div>
+            <h3 id="modal-title" class="font-heading font-black text-2xl text-white"></h3>
+            <p id="modal-desc" class="text-xs text-gray-300 leading-relaxed"></p>
+            <div id="modal-cart-summary" class="bg-black/50 p-3 rounded-xl text-xs text-left font-mono text-brand-gold"></div>
+            <div class="flex gap-2 pt-2">
+                <button onclick="closeCollabModal()" class="flex-1 bg-white/10 hover:bg-white/20 text-white text-xs font-bold py-3 rounded-xl">Cancel</button>
+                <a id="modal-redirect-btn" href="#" target="_blank" class="flex-1 text-white text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-lg">
+                    Confirm & Launch App <i class="fa-solid fa-external-link text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT APPLICATION LOGIC -->
+    <script>
+        const menuData = [
+            { id: 1, name: "Special Burger", price: 750, category: "specialty", tag: "Branch Exclusive", desc: "Signature double beef patty with secret hap sauce & caramelised onions.", img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" },
+            { id: 2, name: "Military Style Burger", price: 850, category: "specialty", tag: "Includes 2 Wings", desc: "Heavyweight burger served with 2 crispy chicken wings and 4 dipping sauces.", img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80" },
+            { id: 3, name: "Beyond Special Burger", price: 800, category: "specialty", tag: "Double Patty", desc: "Double grilled beef patty, melted cheddar cheese, lettuce, and house sauce.", img: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80" },
+            { id: 4, name: "Chef's Burger", price: 780, category: "specialty", tag: "Beef + Chicken", desc: "Combinational beef patty topped with crispy golden chicken fillet.", img: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=500&q=80" },
+            { id: 5, name: "Bigshow Burger", price: 900, category: "specialty", tag: "Triple Patty", desc: "Triple stacked beef patties with melted cheese layers.", img: "https://images.unsplash.com/photo-1534790566855-4cc788479725?auto=format&fit=crop&w=500&q=80" },
+            { id: 6, name: "Double Saucy Burger", price: 700, category: "specialty", tag: "Extra Sauce", desc: "Loaded extra drip BBQ & garlic mayo sauce.", img: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80" },
+            { id: 7, name: "Double Cheese Burger", price: 680, category: "specialty", tag: "Extra Cheese", desc: "Double sliced cheddar cheese over sizzling grilled beef.", img: "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=500&q=80" },
+            
+            { id: 8, name: "Beyond Special Chicken", price: 750, category: "chicken", tag: "Crispy Chicken", desc: "Crispy seasoned chicken breast, mayo, and fresh lettuce.", img: "https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=500&q=80" },
+            { id: 9, name: "Chicken Wings (2 Sauces)", price: 550, category: "chicken", tag: "Side", desc: "Crispy golden fried chicken wings with 2 house dips.", img: "https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=500&q=80" },
+
+            { id: 10, name: "Panini Grilled Wrap & Fries", price: 480, category: "wraps", tag: "Featured", desc: "Toasted panini wrap served with golden crispy french fries and ketchup.", img: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=80" },
+            { id: 11, name: "Special Loaded Pizza", price: 750, category: "wraps", tag: "Chef Special", desc: "Fresh baked pizza topped with beef, sliced boiled eggs, peppers, and cheese.", img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80" },
+
+            { id: 12, name: "Belgian Strawberry Waffle", price: 350, category: "desserts", tag: "Dessert", desc: "Golden waffle topped with fresh sliced strawberries and sweet drizzle.", img: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=500&q=80" },
+            { id: 13, name: "Chocolate Lattice Crepe", price: 320, category: "desserts", tag: "Sweet", desc: "Fresh crepe with dark & white chocolate drizzle lattice design.", img: "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=500&q=80" },
+
+            { id: 14, name: "Strawberry Deluxe Milkshake", price: 280, category: "drinks", tag: "Shake", desc: "Creamy strawberry milkshake topped with whipped cream.", img: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80" },
+            { id: 15, name: "Fresh Juice (Mix/Mango)", price: 180, category: "drinks", tag: "100% Natural", desc: "Freshly blended local Ethiopian fruits.", img: "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=500&q=80" }
+        ];
+
+        let cart = [];
+        let activeCategory = 'all';
+
+        let builderState = {
+            patty: 'single',
+            cheese: true,
+            sauce: true,
+            lettuce: true,
+            wings: false
+        };
+
+        function renderMenu() {
+            const container = document.getElementById('menu-grid');
+            const searchVal = document.getElementById('menu-search').value.toLowerCase();
+            container.innerHTML = '';
+
+            const filtered = menuData.filter(item => {
+                const matchesCat = (activeCategory === 'all' || item.category === activeCategory);
+                const matchesSearch = item.name.toLowerCase().includes(searchVal) || item.desc.toLowerCase().includes(searchVal);
+                return matchesCat && matchesSearch;
+            });
+
+            if(filtered.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400">No menu items found.</div>`;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-brand-amber/50 transition-all flex flex-col justify-between group";
+                card.innerHTML = `
+                    <div>
+                        <div class="h-44 overflow-hidden relative">
+                            <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <span class="absolute top-3 left-3 bg-brand-amber/90 text-white font-bold text-[10px] px-2.5 py-1 rounded-full uppercase">${item.tag}</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-heading font-bold text-base text-white group-hover:text-brand-amber transition-colors">${item.name}</h3>
+                                <span class="font-number font-black text-sm text-brand-gold whitespace-nowrap ml-2">ETB ${item.price}</span>
+                            </div>
+                            <p class="text-xs text-gray-400 leading-relaxed">${item.desc}</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <button onclick="addToCart(${item.id})" class="w-full bg-white/5 hover:bg-brand-amber hover:text-white border border-white/10 text-brand-gold font-heading font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-2 active:scale-95">
+                            <i class="fa-solid fa-plus"></i> Add To Order
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = "cat-btn glass-panel text-gray-300 hover:text-white font-heading text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full whitespace-nowrap transition-all";
+            });
+            event.target.className = "cat-btn active bg-brand-amber text-white font-heading text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full whitespace-nowrap transition-all shadow-md";
+            renderMenu();
+        }
+
+        function filterMenu() {
+            renderMenu();
+        }
+
+        function addToCart(id) {
+            const item = menuData.find(m => m.id === id);
+            const existing = cart.find(c => c.id === id);
+            if(existing) {
+                existing.qty++;
+            } else {
+                cart.push({ ...item, qty: 1 });
+            }
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        function updateCartQty(id, delta) {
+            const index = cart.findIndex(c => c.id === id);
+            if(index !== -1) {
+                cart[index].qty += delta;
+                if(cart[index].qty <= 0) cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const countEl = document.getElementById('cart-count');
+            const itemsContainer = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+
+            const totalItems = cart.reduce((acc, curr) => acc + curr.qty, 0);
+            const totalPrice = cart.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
+
+            countEl.innerText = totalItems;
+            totalEl.innerText = `ETB ${totalPrice}`;
+
+            itemsContainer.innerHTML = '';
+            if(cart.length === 0) {
+                itemsContainer.innerHTML = `<div class="text-center text-gray-500 py-8 text-xs">Your order cart is empty.</div>`;
+                return;
+            }
+
+            cart.forEach(item => {
+                const el = document.createElement('div');
+                el.className = "p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between";
+                el.innerHTML = `
+                    <div>
+                        <div class="font-heading font-bold text-xs text-white">${item.name}</div>
+                        <div class="font-number text-xs text-brand-gold">ETB ${item.price * item.qty}</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="updateCartQty('${item.id}', -1)" class="w-6 h-6 rounded bg-white/10 flex items-center justify-center text-xs text-white">-</button>
+                        <span class="font-number text-xs text-white">${item.qty}</span>
+                        <button onclick="updateCartQty('${item.id}', 1)" class="w-6 h-6 rounded bg-white/10 flex items-center justify-center text-xs text-white">+</button>
+                    </div>
+                `;
+                itemsContainer.appendChild(el);
+            });
+        }
+
+        function toggleCart(forceOpen = false) {
+            const drawer = document.getElementById('cart-drawer');
+            if(forceOpen) {
+                drawer.classList.remove('hidden');
+            } else {
+                drawer.classList.toggle('hidden');
+            }
+        }
+
+        function toggleMobileNav() {
+            document.getElementById('mobile-nav').classList.toggle('hidden');
+        }
+
+        // DEEP LINK & CALL DISPATCH LOGIC
+        function processCheckout(platform) {
+            // Direct call triggers instant phone dialer launch
+            if(platform === 'phone') {
+                window.location.href = 'tel:0944187274';
+                return;
+            }
+
+            if(cart.length === 0) {
+                alert("Please add items to your cart before selecting a delivery partner.");
+                return;
+            }
+            openDeliveryModal(platform);
+        }
+
+        function openDeliveryModal(platform) {
+            const modal = document.getElementById('collab-modal');
+            const icon = document.getElementById('modal-icon');
+            const title = document.getElementById('modal-title');
+            const desc = document.getElementById('modal-desc');
+            const summary = document.getElementById('modal-cart-summary');
+            const redirectBtn = document.getElementById('modal-redirect-btn');
+
+            const total = cart.reduce((a, b) => a + (b.price * b.qty), 0);
+            const cartText = cart.length > 0 
+                ? cart.map(i => `• ${i.name} x${i.qty} (ETB ${i.price * i.qty})`).join('\n') + `\nTotal: ETB ${total}`
+                : "No items in cart (browsing partner link)";
+
+            summary.innerText = cartText;
+
+            const orderPayload = encodeURIComponent(
+                `BURGER ZONE ORDER\nStore: Ayer Tena Branch\n\nItems:\n` +
+                cart.map(i => `${i.name} x${i.qty}`).join('\n') +
+                `\nTotal Price: ETB ${total}`
+            );
+
+            if(platform === 'beu') {
+                icon.className = "w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl bg-brand-beu/20 text-brand-beu";
+                icon.innerHTML = `<i class="fa-solid fa-motorcycle"></i>`;
+                title.innerText = "BEU Delivery Collaboration";
+                desc.innerText = "Launching Beu App dispatch for Ayer Tena Shamo Tower branch. Your order breakdown will be sent directly to Beu courier services.";
+                redirectBtn.className = "flex-1 bg-brand-beu hover:brightness-110 text-white text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-lg";
+                redirectBtn.href = `https://beudelivery.com/order?store=burger-zone-ayer-tena&data=${orderPayload}`;
+            } else if(platform === 'klik') {
+                icon.className = "w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl bg-brand-klik/20 text-brand-klik";
+                icon.innerHTML = `<i class="fa-solid fa-truck-fast"></i>`;
+                title.innerText = "KLIK Delivery Collaboration";
+                desc.innerText = "Launching Klik App express tracking for Ayer Tena Shamo Tower branch. Confirm to open Klik Delivery terminal.";
+                redirectBtn.className = "flex-1 bg-brand-klik hover:brightness-110 text-white text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-lg";
+                redirectBtn.href = `https://klikdelivery.com/order?store=burger-zone-ayer-tena&data=${orderPayload}`;
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeCollabModal() {
+            document.getElementById('collab-modal').classList.add('hidden');
+        }
+
+        // Custom Builder Logic
+        function updateBuilder(key, val) {
+            builderState[key] = val;
+            calculateBuilderPrice();
+            updateBuilderVisual();
+        }
+
+        function toggleBuilderExtra(key) {
+            builderState[key] = !builderState[key];
+            const btn = document.getElementById(`opt-${key}`);
+            if(builderState[key]) {
+                btn.classList.add('bg-brand-amber/20', 'border-brand-amber/40');
+            } else {
+                btn.classList.remove('bg-brand-amber/20', 'border-brand-amber/40');
+            }
+            calculateBuilderPrice();
+            updateBuilderVisual();
+        }
+
+        function calculateBuilderPrice() {
+            let total = 600;
+            if(builderState.patty === 'double') total += 150;
+            if(builderState.patty === 'chicken') total = 650;
+            if(builderState.cheese) total += 80;
+            if(builderState.sauce) total += 50;
+            if(builderState.wings) total += 150;
+            document.getElementById('builder-price').innerText = `ETB ${total}`;
+        }
+
+        function updateBuilderVisual() {
+            const imgPreview = document.getElementById('builder-img-preview');
+            const summaryTags = document.getElementById('builder-summary-tags');
+
+            let tagsHTML = '';
+
+            if(builderState.patty === 'double') {
+                imgPreview.src = "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80";
+                tagsHTML += `<span class="bg-brand-amber/20 border border-brand-amber/40 text-brand-gold text-xs font-bold px-3 py-1 rounded-full">Double Beef</span>`;
+            } else if(builderState.patty === 'chicken') {
+                imgPreview.src = "https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=800&q=80";
+                tagsHTML += `<span class="bg-brand-amber/20 border border-brand-amber/40 text-brand-gold text-xs font-bold px-3 py-1 rounded-full">Crispy Chicken</span>`;
+            } else {
+                imgPreview.src = "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80";
+                tagsHTML += `<span class="bg-brand-amber/20 border border-brand-amber/40 text-brand-gold text-xs font-bold px-3 py-1 rounded-full">Single Beef</span>`;
+            }
+
+            if(builderState.cheese) {
+                tagsHTML += `<span class="bg-brand-gold/20 border border-brand-gold/40 text-brand-gold text-xs font-bold px-3 py-1 rounded-full">Melted Cheese</span>`;
+            }
+            if(builderState.sauce) {
+                tagsHTML += `<span class="bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold px-3 py-1 rounded-full">Double Saucy</span>`;
+            }
+            if(builderState.lettuce) {
+                tagsHTML += `<span class="bg-brand-green/20 border border-brand-green/40 text-brand-green text-xs font-bold px-3 py-1 rounded-full">Fresh Veggies</span>`;
+            }
+            if(builderState.wings) {
+                tagsHTML += `<span class="bg-white/10 border border-white/20 text-white text-xs font-bold px-3 py-1 rounded-full">+2 Wings Side</span>`;
+            }
+
+            summaryTags.innerHTML = tagsHTML;
+        }
+
+        function addCustomBurgerToCart() {
+            const price = parseInt(document.getElementById('builder-price').innerText.replace('ETB ', ''));
+            const customItem = {
+                id: 'custom-' + Date.now(),
+                name: `Custom Burger (${builderState.patty.toUpperCase()})`,
+                price: price,
+                qty: 1
+            };
+            cart.push(customItem);
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        // Initialize App on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderMenu();
+            calculateBuilderPrice();
+            updateBuilderVisual();
+        });
+    </script>
+</body>
+</html>
